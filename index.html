@@ -1,7 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Drupad Giri Portfolio</title>
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
 <style>
 
@@ -10,28 +17,54 @@ margin:0;
 font-family:Arial;
 background:#0f2027;
 color:white;
-text-align:center;
 }
+
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+background:#0f2027;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:center;
+gap:40px;
+padding:20px;
+background:rgba(0,0,0,0.4);
+position:fixed;
+width:100%;
+backdrop-filter:blur(10px);
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:18px;
+}
+
+/* HERO */
 
 .hero{
 height:100vh;
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
-background:linear-gradient(-45deg,#1f4037,#99f2c8,#1f4037,#0f2027);
-background-size:400% 400%;
-animation:gradient 10s ease infinite;
+text-align:center;
 }
 
-@keyframes gradient{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+.card{
+background:rgba(255,255,255,0.08);
+padding:50px;
+border-radius:20px;
+backdrop-filter:blur(10px);
 }
 
 .profile{
-width:140px;
+width:130px;
 border-radius:50%;
 margin-bottom:20px;
 }
@@ -55,18 +88,52 @@ background:#0077b5;
 color:white;
 }
 
+/* SECTIONS */
+
+section{
+padding:100px 15%;
+}
+
+.projects{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.project{
+background:#1c1c1c;
+padding:20px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.project:hover{
+transform:scale(1.05);
+}
+
 </style>
 </head>
 
 <body>
 
+<div id="particles-js"></div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#helios">Helios Racing</a>
+<a href="#contact">Contact</a>
+</nav>
+
 <div class="hero">
+
+<div class="card">
 
 <img src="profile.jpg" class="profile">
 
 <h1>Drupad Giri</h1>
 
-<p>Electronics & Communication Engineer | Embedded Systems | AI</p>
+<h2><span id="typing"></span></h2>
 
 <a href="resume.pdf">
 <button class="resume">Download Resume</button>
@@ -77,6 +144,94 @@ color:white;
 </a>
 
 </div>
+
+</div>
+
+<section id="about">
+
+<h2>About Me</h2>
+
+<p>
+ECE student at RV College of Engineering passionate about Embedded Systems,
+Automotive Engineering and AI applications.
+</p>
+
+</section>
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+<h3>Digital Oscilloscope</h3>
+<p>STM32F407 + ILI9341 based oscilloscope.</p>
+</div>
+
+<div class="project">
+<h3>SmartNoise Filter</h3>
+<p>AI image denoising GUI using Python.</p>
+</div>
+
+<div class="project">
+<h3>Vehicle-to-Vehicle Communication</h3>
+<p>Automotive communication system.</p>
+</div>
+
+<div class="project">
+<h3>Deepfake Audio Detection</h3>
+<p>ML model to detect fake audio.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="helios">
+
+<h2>Helios Racing</h2>
+
+<p>
+Member of Helios Racing – RV College automotive team
+working on BAJA off-road vehicle engineering.
+</p>
+
+</section>
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<p>Email: yourmail@gmail.com</p>
+
+<p>
+LinkedIn:
+<a href="https://www.linkedin.com/in/drupad-giri-2078bb295/" target="_blank">
+Drupad Giri
+</a>
+</p>
+
+</section>
+
+<script>
+
+var typed = new Typed("#typing", {
+strings: [
+"Embedded Systems Engineer",
+"STM32 Developer",
+"AI Enthusiast",
+"Automotive Engineer"
+],
+typeSpeed:60,
+backSpeed:40,
+loop:true
+});
+
+particlesJS.load('particles-js',
+'https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/particles.json');
+
+</script>
 
 </body>
 </html>
